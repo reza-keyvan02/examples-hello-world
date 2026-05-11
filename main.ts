@@ -1,6 +1,10 @@
 // MasterHttpRelay exit node for Deno Deploy.
 // Deploy as HTTP endpoint and set PSK to a strong secret.
+import { serveFile } from "jsr:@std/http/file-server";
 
+Deno.serve((req: Request) => {
+    return serveFile(req, "./index.html");
+});
 declare const Deno: any;
 
 const PSK = "Flint1694!!";
